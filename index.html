@@ -34,9 +34,9 @@
                 radial-gradient(circle at 90% 80%, rgba(255, 0, 85, 0.05) 0%, transparent 40%);
         }
 
-        /* ناڤباری مۆبایل و دێکتۆپ */
+        /* ناڤبار */
         nav {
-            background: rgba(2, 6, 23, 0.9);
+            background: rgba(2, 6, 23, 0.95);
             backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border-color);
             padding: 0.8rem 1.2rem;
@@ -75,9 +75,14 @@
             text-shadow: 0 0 8px var(--neon-blue);
         }
 
-        .auth-btns {
+        .auth-btns, .profile-area {
             display: flex;
             gap: 0.5rem;
+            align-items: center;
+        }
+
+        .hidden {
+            display: none !important;
         }
 
         .cyber-btn {
@@ -111,7 +116,7 @@
             box-shadow: 0 0 20px var(--neon-red);
         }
 
-        /* بەشی سەرەوە (هیدەر) بۆ مۆبایل */
+        /* بەشی سەرەوە (هیدەر) و وێنەی ئاڵا لە ڕێگەی لینکەوە */
         header {
             padding: 3rem 1rem 2rem 1rem;
             text-align: center;
@@ -125,37 +130,13 @@
             margin-bottom: 1.5rem;
         }
 
-        .kurdistan-css-flag {
-            width: 130px;
-            height: 85px;
-            background: #000;
+        .flag-img {
+            width: 150px;
+            height: 95px;
             border-radius: 8px;
-            border: 1px solid var(--text-muted);
-            position: relative;
+            border: 2px solid var(--border-color);
             box-shadow: 0 0 25px rgba(255, 0, 85, 0.4);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .stripe-red { height: 33.33%; background: #da251d; }
-        .stripe-white { height: 33.33%; background: #ffffff; position: relative; }
-        .stripe-green { height: 33.33%; background: #007a3d; }
-        
-        .sun-symbol {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 26px;
-            height: 26px;
-            background: #ffcc00;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 26px;
-            font-size: 14px;
-            color: #da251d;
-            box-shadow: 0 0 8px #ffcc00;
+            object-fit: cover;
         }
 
         header h1 {
@@ -190,7 +171,7 @@
             padding-right: 10px;
         }
 
-        /* بەشی چات بە شێوازێکی زۆر مۆدێرن */
+        /* بەشی چات */
         .chat-section {
             background: var(--panel-bg);
             border: 1px solid var(--border-color);
@@ -201,7 +182,7 @@
         }
 
         .chat-box {
-            height: 280px;
+            height: 300px;
             background: #020617;
             border: 1px solid var(--border-color);
             border-radius: 8px;
@@ -219,12 +200,13 @@
             border-radius: 8px;
             font-size: 0.95rem;
             border-left: 3px solid var(--neon-blue);
+            word-break: break-all;
         }
 
         .chat-message .user-name {
             color: var(--neon-blue);
             font-weight: bold;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             margin-bottom: 0.1rem;
         }
 
@@ -250,7 +232,7 @@
             box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
         }
 
-        /* بەشی گریدەکان (پڕۆژە و ئامار) بۆ مۆبایل */
+        /* گریدەکان */
         .grid-cards {
             display: grid;
             grid-template-columns: 1fr;
@@ -270,8 +252,6 @@
             border-radius: 12px;
             padding: 1.5rem;
             transition: 0.3s;
-            position: relative;
-            overflow: hidden;
         }
 
         .cyber-card:hover {
@@ -291,7 +271,7 @@
             margin-bottom: 1rem;
         }
 
-        /* موداڵەکان (پەنجەرە خۆکارەکان) */
+        /* مۆداڵەکان */
         .modal {
             display: none;
             position: fixed;
@@ -346,21 +326,24 @@
             <a href="#chatSection">چات</a>
             <a href="#projects">پڕۆژە</a>
         </div>
-        <div class="auth-btns">
+        
+        <!-- دوگمەکانی چوونەژوورەوە و تۆماربوون (ئەگەر ناو تۆمار نەکرابێت) -->
+        <div class="auth-btns" id="authBtns">
             <button class="cyber-btn" onclick="openModal('loginModal')">چوونەژوورەوە</button>
             <button class="cyber-btn cyber-btn-red" onclick="openModal('registerModal')">تۆماربوون</button>
+        </div>
+
+        <!-- بەشی پرۆفایل (کە دوای دروستکردنی ئەکاونت دەردەکەوێت) -->
+        <div class="profile-area hidden" id="profileArea">
+            <button class="cyber-btn" onclick="openModal('profileModal')">👤 پرۆفایلەکەم</button>
+            <button class="cyber-btn cyber-btn-red" onclick="logout()">دەرچوون</button>
         </div>
     </nav>
 
     <header>
+        <!-- ئاڵای کوردستان لە ڕێگەی لینکەوە -->
         <div class="flag-box">
-            <div class="kurdistan-css-flag">
-                <div class="stripe-red"></div>
-                <div class="stripe-white">
-                    <div class="sun-symbol">✦</div>
-                </div>
-                <div class="stripe-green"></div>
-            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Flag_of_Kurdistan.svg" alt="ئاڵای کوردستان" class="flag-img">
         </div>
         <h1>ReaperSecKRD</h1>
         <p>ناوەندی سەردەمیی ئاسایشی سایبەری و سەکۆی تێکەڵاوی کوردی</p>
@@ -368,18 +351,17 @@
 
     <div class="container">
 
-        <!-- بەشی چاتی خێرا بۆ مۆبایل -->
+        <!-- بەشی چاتی گشتی -->
         <h2 class="section-title" id="chatSection">💬 چاتی گشتی زیندوو</h2>
         <div class="chat-section">
             <div class="chat-box" id="chatBox">
                 <div class="chat-message">
-                    <div class="user-name">DarkCoder</div>
-                    <div>بەخێر هاتن! سەکۆکە بۆ مۆبایل زۆر خێرا و سووک کرا.</div>
+                    <div class="user-name">سیستم:</div>
+                    <div>بەخێر هاتن! هەر ناوێک تۆمار بکەیت، ڕاستەوخۆ لە چاتدا بە ناوی خۆت قسە دەکەیت.</div>
                 </div>
             </div>
             <div class="chat-input-area">
-                <input type="text" id="chatUser" class="cyber-input" placeholder="ناو..." style="max-width: 100px;">
-                <input type="text" id="chatText" class="cyber-input" placeholder="پەیام..." onkeypress="checkEnter(event)">
+                <input type="text" id="chatText" class="cyber-input" placeholder="پەیامەکەت بنووسە..." onkeypress="checkEnter(event)">
                 <button class="cyber-btn" onclick="sendMessage()">ناردن</button>
             </div>
         </div>
@@ -406,9 +388,9 @@
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal('loginModal')">&times;</span>
             <h2 style="margin-bottom: 1.2rem; color: var(--neon-blue); font-size: 1.4rem;">چوونەژوورەوە</h2>
-            <input type="email" class="cyber-input" placeholder="ئیمەیڵ..." style="margin-bottom: 1rem;">
+            <input type="text" id="loginUser" class="cyber-input" placeholder="ناوی بەکارهێنەر..." style="margin-bottom: 1rem;">
             <input type="password" class="cyber-input" placeholder="وشەی تێپەڕ..." style="margin-bottom: 1.2rem;">
-            <button class="cyber-btn" style="width: 100%;" onclick="alert('سەرکەوتوو بوو!'); closeModal('loginModal');">چوونەژوورەوە</button>
+            <button class="cyber-btn" style="width: 100%;" onclick="handleLogin()">چوونەژوورەوە</button>
         </div>
     </div>
 
@@ -417,10 +399,23 @@
         <div class="modal-content" style="border-color: var(--neon-red); box-shadow: 0 0 30px rgba(255, 0, 85, 0.3);">
             <span class="close-modal" style="color: var(--neon-red);" onclick="closeModal('registerModal')">&times;</span>
             <h2 style="margin-bottom: 1.2rem; color: var(--neon-red); font-size: 1.4rem;">دروستکردنی ئەکاونت</h2>
-            <input type="text" class="cyber-input" placeholder="ناوی بەکارهێنەر..." style="margin-bottom: 1rem;">
-            <input type="email" class="cyber-input" placeholder="ئیمەیڵ..." style="margin-bottom: 1rem;">
-            <input type="password" class="cyber-input" placeholder="وشەی تێپەڕی نوێ..." style="margin-bottom: 1.2rem;">
-            <button class="cyber-btn cyber-btn-red" style="width: 100%;" onclick="alert('ئەکاونت دروستکرا!'); closeModal('registerModal');">تۆمارکردن</button>
+            <input type="text" id="regUser" class="cyber-input" placeholder="ناوی بەکارهێنەر (بۆ نموونە ahmad)..." style="margin-bottom: 1rem;">
+            <input type="email" id="regEmail" class="cyber-input" placeholder="ئیمەیڵ..." style="margin-bottom: 1rem;">
+            <input type="password" class="cyber-input" placeholder="وشەی تێپەڕ..." style="margin-bottom: 1.2rem;">
+            <button class="cyber-btn cyber-btn-red" style="width: 100%;" onclick="handleRegister()">تۆمارکردن</button>
+        </div>
+    </div>
+
+    <!-- مۆداڵی پرۆفایل -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('profileModal')">&times;</span>
+            <h2 style="margin-bottom: 1.2rem; color: var(--neon-blue); font-size: 1.4rem;">زانیاری پرۆفایل</h2>
+            <p style="color: var(--text-muted); margin-bottom: 0.5rem;">ناوی بەکارهێنەر:</p>
+            <p id="profileNameDisplay" style="color: var(--neon-blue); font-weight: bold; font-size: 1.2rem; margin-bottom: 1rem;"></p>
+            <p style="color: var(--text-muted); margin-bottom: 0.5rem;">دۆخی ئەکاونט:</p>
+            <p style="color: #22c55e; font-weight: bold; margin-bottom: 1.5rem;">● فعال و پەیوەستکراو</p>
+            <button class="cyber-btn" style="width: 100%;" onclick="closeModal('profileModal')">داخستن</button>
         </div>
     </div>
 
@@ -429,15 +424,76 @@
     </footer>
 
     <script>
+        // پشکنینی ئەکاونت لە کاتی کردنەوەی لاپەڕە
+        let currentUser = localStorage.getItem('reaperUser') || null;
+
+        window.onload = function() {
+            updateAuthUI();
+        }
+
+        function updateAuthUI() {
+            let authBtns = document.getElementById('authBtns');
+            let profileArea = document.getElementById('profileArea');
+            let profileNameDisplay = document.getElementById('profileNameDisplay');
+
+            if (currentUser) {
+                authBtns.classList.add('hidden');
+                profileArea.classList.remove('hidden');
+                profileNameDisplay.innerText = currentUser;
+            } else {
+                authBtns.classList.remove('hidden');
+                profileArea.classList.add('hidden');
+            }
+        }
+
+        function handleRegister() {
+            let username = document.getElementById('regUser').value.trim();
+            if (!username) {
+                alert('تکایە ناوی بەکارهێنەر بنووسە!');
+                return;
+            }
+            currentUser = username;
+            localStorage.setItem('reaperUser', currentUser);
+            updateAuthUI();
+            closeModal('registerModal');
+            alert('ئەکاونتەکەت بە سەرکەوتوویی دروستکرا و چوویە ژوورەوە!');
+        }
+
+        function handleLogin() {
+            let username = document.getElementById('loginUser').value.trim();
+            if (!username) {
+                alert('تکایە ناوی بەکارهێنەر بنووسە!');
+                return;
+            }
+            currentUser = username;
+            localStorage.setItem('reaperUser', currentUser);
+            updateAuthUI();
+            closeModal('loginModal');
+            alert('بە سەرکەوتوویی چوویە ژوورەوە!');
+        }
+
+        function logout() {
+            currentUser = null;
+            localStorage.removeItem('reaperUser');
+            updateAuthUI();
+            alert('تۆ دەرچوویت لە ئەکاونتەکەت.');
+        }
+
         function openModal(id) { document.getElementById(id).style.display = 'flex'; }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
 
         function sendMessage() {
-            let user = document.getElementById('chatUser').value.trim() || "مێوان";
+            if (!currentUser) {
+                alert('سەرەتا پێویستە چوونەژوورەوە بکەیت یان ئەکاونت دروست بکەیت تاوەکو بتوانیت قسە بکەیت!');
+                openModal('loginModal');
+                return;
+            }
+
             let text = document.getElementById('chatText').value.trim();
             if(!text) return;
+
             let box = document.getElementById('chatBox');
-            box.innerHTML += `<div class="chat-message"><div class="user-name">${escapeHtml(user)}</div><div>${escapeHtml(text)}</div></div>`;
+            box.innerHTML += `<div class="chat-message"><div class="user-name">${escapeHtml(currentUser)}:</div><div>${escapeHtml(text)}</div></div>`;
             document.getElementById('chatText').value = "";
             box.scrollTop = box.scrollHeight;
         }
