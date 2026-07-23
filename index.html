@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReaperSecKRD | ناوەندی ئاسایشی سایبەری و هەواڵی کوردی</title>
+    <title>ReaperSecKRD | ناوەندی پێشکەوتووی ئاسایشی سایبەری</title>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         * {
@@ -11,96 +11,66 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Vazirmatn', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: #05070c;
-            color: #e2e8f0;
-            line-height: 1.7;
+            background-color: #030712;
+            color: #f3f4f6;
+            line-height: 1.8;
             overflow-x: hidden;
         }
 
         /* بەشی سەرەوە (هیدەر) */
         header {
-            background: linear-gradient(135deg, #090d16, #16122d);
+            background: linear-gradient(135deg, #090d16, #1e1b4b);
             border-bottom: 3px solid #ef4444;
-            padding: 2.5rem 1rem;
+            padding: 3rem 1rem;
             text-align: center;
             position: relative;
         }
 
-        .flag-container {
-            margin-bottom: 1rem;
+        /* ئاڵای کوردستانی ڕەسەن لە ڕێگەی وێنەوە */
+        .flag-box {
+            margin-bottom: 1.5rem;
         }
 
-        .kurdistan-flag {
-            width: 120px;
-            height: 75px;
+        .kurdistan-real-flag {
+            width: 140px;
+            height: 90px;
             border-radius: 8px;
-            border: 2px solid #334155;
-            box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
-            display: inline-block;
-            background: linear-gradient(to bottom, #red 33%, #fff 33%, #fff 66%, #008000 66%); /* fallback */
-            overflow: hidden;
-        }
-
-        /* شێوازی ڕاستەقینەی ئاڵای کوردستان بە CSS */
-        .k-flag {
-            width: 120px;
-            height: 80px;
-            background: #000;
-            display: inline-block;
-            border-radius: 6px;
             border: 2px solid #475569;
-            position: relative;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-        }
-        .stripe-red { height: 33.33%; background: #da251d; }
-        .stripe-white { height: 33.33%; background: #ffffff; position: relative; }
-        .stripe-green { height: 33.33%; background: #007a3d; }
-        .sun-symbol {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 26px;
-            height: 26px;
-            background: #ffcc00;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 26px;
-            font-size: 14px;
-            font-weight: bold;
-            color: #da251d;
-            box-shadow: 0 0 8px #ffcc00;
+            box-shadow: 0 0 25px rgba(239, 68, 68, 0.5);
+            object-fit: cover;
+            display: inline-block;
         }
 
         header h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: #ef4444;
             font-weight: 900;
-            text-shadow: 0 0 20px rgba(239, 68, 68, 0.7);
+            text-shadow: 0 0 25px rgba(239, 68, 68, 0.7);
             letter-spacing: 2px;
         }
 
         header p {
             color: #94a3b8;
-            margin-top: 0.5rem;
-            font-size: 1.1rem;
+            margin-top: 0.75rem;
+            font-size: 1.2rem;
         }
 
         .container {
-            max-width: 1100px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
         }
 
         /* بەشی دوگمە پێشکەوتووەکان */
         .action-buttons {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
+            gap: 1.2rem;
+            margin-bottom: 3.5rem;
             flex-wrap: wrap;
         }
 
@@ -108,19 +78,22 @@
             background: #0f172a;
             color: #38bdf8;
             border: 2px solid #38bdf8;
-            padding: 0.85rem 1.8rem;
-            border-radius: 10px;
+            padding: 0.9rem 2rem;
+            border-radius: 12px;
             cursor: pointer;
             font-weight: 700;
+            font-size: 1rem;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn:hover {
             background: #38bdf8;
-            color: #05070c;
-            transform: translateY(-4px);
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
+            color: #030712;
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
         }
 
         .btn-danger {
@@ -132,132 +105,213 @@
         .btn-danger:hover {
             background: #ef4444;
             color: #fff;
-            box-shadow: 0 0 25px rgba(239, 68, 68, 0.6);
+            box-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
         }
 
-        /* بەشی زانیاری لەسەر هاککەرانی کورد */
+        /* بەشی زانیاری گەورە لەسەر هاککەران */
         .info-section {
             background: #0f172a;
             border: 1px solid #1e293b;
-            border-right: 5px solid #38bdf8;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-right: 6px solid #38bdf8;
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 4rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            align-items: center;
         }
 
-        .info-section h2 {
+        @media (max-width: 900px) {
+            .info-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-content h2 {
             color: #38bdf8;
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            font-size: 2rem;
         }
 
-        .info-section p {
+        .info-content p {
             color: #cbd5e1;
             margin-bottom: 1rem;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
         }
 
-        /* پۆلەکان و هەواڵەکان */
+        .info-image img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid #334155;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+
+        /* پێشەکی پۆستەکان */
         .section-title {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             color: #f8fafc;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             border-bottom: 2px solid #1e293b;
-            padding-bottom: 0.5rem;
+            padding-bottom: 0.75rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .posts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.8rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
         }
 
         .post-card {
             background: #0f172a;
             border: 1px solid #1e293b;
-            border-radius: 14px;
-            padding: 1.8rem;
-            transition: 0.3s ease;
-            position: relative;
+            border-radius: 16px;
             overflow: hidden;
+            transition: 0.4s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
         }
 
-        .post-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 5px;
-            height: 100%;
-            background: #ef4444;
+        .post-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid #1e293b;
+        }
+
+        .post-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .post-card:hover {
             border-color: #ef4444;
-            transform: translateY(-7px);
-            box-shadow: 0 15px 35px rgba(239, 68, 68, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(239, 68, 68, 0.3);
         }
 
         .post-date {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: #ef4444;
             margin-bottom: 0.75rem;
             font-weight: bold;
         }
 
         .post-title {
-            font-size: 1.35rem;
-            margin-bottom: 0.75rem;
+            font-size: 1.45rem;
+            margin-bottom: 1rem;
             color: #f8fafc;
         }
 
         .post-desc {
             color: #94a3b8;
-            font-size: 0.95rem;
-            margin-bottom: 1.25rem;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
         }
 
-        .read-more {
-            display: inline-block;
+        .read-more-btn {
+            background: transparent;
             color: #38bdf8;
-            text-decoration: none;
+            border: 1px solid #38bdf8;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
             font-weight: bold;
             font-size: 0.95rem;
-            transition: 0.2s;
+            transition: 0.3s;
+            text-align: center;
+            width: fit-content;
         }
 
-        .read-more:hover {
-            color: #7dd3fc;
-            text-decoration: underline;
+        .read-more-btn:hover {
+            background: #38bdf8;
+            color: #030712;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
         }
 
-        /* فۆتەر */
+        /* بەشی فۆتەر (Footer) */
         footer {
             text-align: center;
-            padding: 2.5rem;
-            margin-top: 4rem;
+            padding: 3rem;
+            margin-top: 5rem;
             background: #090d16;
             color: #64748b;
             border-top: 1px solid #1e293b;
+            font-size: 1.1rem;
+        }
+
+        /* نیشاندانی پەنجەرەی خوێندنەوەی زیاتر (Modal Popup) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal-content {
+            background: #0f172a;
+            border: 2px solid #ef4444;
+            padding: 2.5rem;
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 0 40px rgba(239, 68, 68, 0.5);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            color: #ef4444;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .close-modal:hover {
+            color: #fff;
+        }
+
+        .modal-title {
+            color: #f8fafc;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-text {
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <!-- ئاڵای کوردستان -->
-        <div class="flag-container">
-            <div class="k-flag">
-                <div class="stripe-red"></div>
-                <div class="stripe-white">
-                    <div class="sun-symbol">✦</div>
-                </div>
-                <div class="stripe-green"></div>
-            </div>
+        <!-- ئاڵای کوردستانی ڕەسەن لە وێبسایتی فەرمی وێنە -->
+        <div class="flag-box">
+            <img src="https://upload.wikimedia.org/commons/3/35/Flag_of_Kurdistan.svg" alt="ئاڵای کوردستان" class="kurdistan-real-flag">
         </div>
         <h1>ReaperSecKRD</h1>
         <p>پلاتفۆرمی فەرمی تیمی ئاسایشی سایبەری و بەرگری ئەلیکترۆنی کوردی</p>
@@ -265,61 +319,113 @@
 
     <div class="container">
         
-        <!-- دوگمە سەرنجڕاکێشەکان -->
+        <!-- دوگمە کاراکان -->
         <div class="action-buttons">
-            <button class="btn btn-danger" onclick="alert('تیمی ReaperSecKRD دامەزراوە بۆ پاراستن و پێشخستنی توانا تەکنەلۆژییەکان!')">⚡ دەربارەی تیم</button>
-            <button class="btn" onclick="alert('بە زوویی سکریپت و پڕۆژە نایابەکان لێرە بڵاو دەکرێنەوە')">💻 پڕۆژە و سکریپتەکان</button>
-            <button class="btn" onclick="alert('کەناڵ و پلاتفۆرمە فەرمییەکانی تیم')">🌐 سۆشیاڵ مێدیا</button>
+            <button class="btn btn-danger" onclick="scrollToSection('postsContainer')">📌 هەواڵەکان</button>
+            <button class="btn" onclick="openAlert('تیمی ReaperSecKRD دامەزراوە بۆ پەرەپێدانی توانا تەکنەلۆژییەکان و پاراستنی ئاسایشی دیجیتالی!')">⚡ دەربارەی تیم</button>
+            <button class="btn" onclick="openAlert('بۆ پەیوەندی کردن بە تیمەکەمان دەتوانن لە ڕێگەی سۆشیاڵ مێدیای فەرمیمانەوە نامە بنێرن.')">🌐 سۆشیاڵ مێدیا</button>
             <button class="btn btn-danger" onclick="location.reload()">🔄 نوێکردنەوەی پەیج</button>
         </div>
 
-        <!-- بەشی زانیاری لەسەر هاککەران و ئاسایشی سایبەری کوردی -->
+        <!-- بەشی زانیاری گەورە لەسەر هاککەرانی کورد -->
         <div class="info-section">
-            <h2>🛡️ مێژوو و ڕۆڵی گەنجانی کورد لە جیهانی سایبەریدا</h2>
-            <p>
-                لە ساڵانی ڕابردوودا، کۆمەڵێک لە گەنج و شارەزایانی تەکنەلۆژیا و ئاسایشی سایبەری لە کوردستان توانیویانە ناوی خۆیان لە جیهانی دیجیتالیدا تۆمار بکەن. هاککەرە پیشەگەر و شارەزایانی ئاسایشی زانیاری کوردی هەمیشە هەوڵیان داوە لە ڕێگەی دۆزینەوەی لاوازییە تەکنەلۆژییەکان، پاراستنی سێرڤەرە کوردییەکان، و پەرەپێدانی ئامرازی بەرگری، ڕۆڵێکی گرنگ لە بەهێزکردنی ژینگەی دیجیتالی کوردی بگێڕن.
-            </p>
-            <p>
-                تیمی <strong>ReaperSecKRD</strong> وەک بەشێک لەم نەوە نوێیە هەستاوە بە دروستکردنی ئەم پلاتفۆرمە تاوەکو ببێتە ناوەندێک بۆ بڵاوکردنەوەی زانستی زانیاری، فێربوونی پڕۆگرامسازی، پاراستنی ئۆنلاین و پەرەپێدانی پڕۆژەی تەکنەلۆژی پێشکەوتوو بە زمانی کوردی.
-            </p>
+            <div class="info-content">
+                <h2>🛡️ مێژوو و ڕۆڵی هاککەران و شارەزایانی ئاسایشی سایبەری کوردی</h2>
+                <p>
+                    لە جیهانی مۆدێرنی دیجیتالیدا، گەنجان و شارەزایانی ئاسایشی زانیاری کوردی توانیویانە دەستکەوتی مەزن لە بواری پاراستنی سێرڤەرەکان، دۆزینەوەی لاوازییەکانی سیستم (Bug Bounty)، و بەرگریکردن لە هێرشە سایبەرییەکان تۆمار بکەن. ئەم بزووتنەوەیە نیشانەی هۆشیاری بەرزی کۆمەڵگەی کوردییە لە ڕووبەڕووبوونەوەی مەترسییە دیجیتالییەکاندا.
+                </p>
+                <p>
+                    تیمی <strong>ReaperSecKRD</strong> وەک بەشێک لەم پێشڕەوییە، پلاتفۆرمێکی کراوە و پێشکەوتووی دروستکردووە تاوەکو فێربوون و زانستی پێشکەوتووی ئاسایشی سایبەری بڵاو بکاتەوە.
+                </p>
+            </div>
+            <div class="info-image">
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop" alt="ئاسایشی سایبەری">
+            </div>
         </div>
 
         <!-- بەشی هەواڵ و پۆستەکان -->
-        <h2 class="section-title">📌 نوێترین هەواڵ و پۆستەکانی تیم</h2>
+        <h2 class="section-title" id="postsContainer">📌 نوێترین هەواڵ و بابەتەکان</h2>
         
-        <div class="posts-grid" id="postsContainer">
+        <div class="posts-grid">
             
             <!-- پۆستی یەکەم -->
             <div class="post-card">
-                <div class="post-date">٢٣ تەمموزی ٢٠٢٦</div>
-                <h3 class="post-title">کردنەوەی وێبسایتی فەرمی ReaperSecKRD</h3>
-                <p class="post-desc">ئەمڕۆ وێبسایتی فەرمی تیمەکەمان لەسەر پلاتفۆرمی GitHub Pages بە دیزاینێکی سایبەری مۆدێرن و ڕەنگاوڕەنگ کەوتە کار.</p>
-                <a href="#" class="read-more">زیاتر بخوێنەوە...</a>
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop" alt="یاری و ئاسایش">
+                <div class="post-content">
+                    <div class="post-date">٢٣ تەمموزی ٢٠٢٦</div>
+                    <h3 class="post-title">کردنەوەی وێبسایتی فەرمی ReaperSecKRD</h3>
+                    <p class="post-desc">ئەمڕۆ وێبسایتی فەرمی تیمەکەمان لەسەر GitHub Pages بە دیزاینێکی سایبەری مۆدێرن و ڕەنگاوڕەنگ کەوتە کار...</p>
+                    <button class="read-more-btn" onclick="openModal('کردنەوەی وێبسایتی فەرمی ReaperSecKRD', 'ئەمڕۆ وێبسایتی فەرمی تیمەکەمان لەسەر GitHub Pages بە دیزاینێکی سایبەری مۆدێرن و ڕەنگاوڕەنگ کەوتە کار. ئامانج لەم پلاتفۆرمە کۆکردنەوەی گەنجان و شارەزایانی ئایتی و بڵاوکردنەوەی بابەتی بەسوودە.')">زیاتر بخوێنەوە</button>
+                </div>
             </div>
 
             <!-- پۆستی دووەم -->
             <div class="post-card">
-                <div class="post-date">٢٢ تەمموزی ٢٠٢٦</div>
-                <h3 class="post-title">گرنگی فێربوونی ئاسایشی سایبەری بۆ گەنجان</h3>
-                <p class="post-desc">چۆن دەتوانیت لە ڕێگەی زمانی پایتۆن و تێگەیشتن لە تۆڕەکانەوە دەست بە گەشتی فێربوونی ئاسایشی زانیاری بکەیت؟</p>
-                <a href="#" class="read-more">زیاتر بخوێنەوە...</a>
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop" alt="پایتۆن و کۆد">
+                <div class="post-content">
+                    <div class="post-date">٢٢ تەمموزی ٢٠٢٦</div>
+                    <h3 class="post-title">گرنگی فێربوونی پڕۆگرامسازی بۆ ئاسایش</h3>
+                    <p class="post-desc">چۆن دەتوانیت لە ڕێگەی زمانی پایتۆنەوە سکریپتی ئۆتۆماتیکی دروست بکەیت و ئاستی زانیاریت بەرز بکەیتەوە...</p>
+                    <button class="read-more-btn" onclick="openModal('گرنگی فێربوونی پڕۆگرامسازی بۆ ئاسایش', 'چۆن دەتوانیت لە ڕێگەی زمانی پایتۆنەوە سکریپتی ئۆتۆماتیکی دروست بکەیت و ئاستی زانیاریت بەرز بکەیتەوە. پایتۆن یەکێکە لە زمانە سەرەکییەکان کە یارمەتیت دەدات لە شیکارکردنی داتا و دروستکردنی ئامرازی پاراستن.')">زیاتر بخوێنەوە</button>
+                </div>
             </div>
 
             <!-- پۆستی سێیەم -->
             <div class="post-card">
-                <div class="post-date">٢١ تەمموزی ٢٠٢٦</div>
-                <h3 class="post-title">پەرەپێدانی سکریپت و ئامرازی نوێی کوردی</h3>
-                <p class="post-desc">تیمی ئێمە کار لەسەر چەند پڕۆژەیەکی تاقیکاری دەکات کە لە داهاتوویەکی نزیکدا بۆ سوودی گشتی بڵاو دەکرێنەوە.</p>
-                <a href="#" class="read-more">زیاتر بخوێنەوە...</a>
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop" alt="پاراستنی دیجیتالی">
+                <div class="post-content">
+                    <div class="post-date">٢١ تەمموزی ٢٠٢٦</div>
+                    <h3 class="post-title">پەرەپێدانی سکریپت و ئامرازی کوردی</h3>
+                    <p class="post-desc">تیمی ئێمە کار لەسەر چەند پڕۆژەیەکی تاقیکاری دەکات کە لە داهاتوویەکی نزیکدا بۆ سوودی گشتی بڵاو دەکرێنەوە...</p>
+                    <button class="read-more-btn" onclick="openModal('پەرەپێدانی سکریپت و ئامرازی کوردی', 'تیمی ئێمە کار لەسەر چەند پڕۆژەیەکی تاقیکاری دەکات کە لە داهاتوویەکی نزیکدا بۆ سوودی گشتی بڵاو دەکرێنەوە. ئەم پڕۆژانە یارمەتیدەر دەبن بۆ بەهێزکردنی شارەزایی تەکنەلۆژی لە ناوچەکەدا.')">زیاتر بخوێنەوە</button>
+                </div>
             </div>
 
         </div>
 
     </div>
 
+    <!-- پێنجەرەی خوێندنەوەی زیاتر (Modal) -->
+    <div id="readModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 class="modal-title" id="modalTitle">ناونیشان</h2>
+            <p class="modal-text" id="modalText">وەرارەی دەقەکە لێرە دەردەکەوێت...</p>
+        </div>
+    </div>
+
     <footer>
         <p>All Rights Reserved © 2026 ReaperSecKRD | Built with Pride for Kurdistan ☀️</p>
     </footer>
+
+    <!-- سکریپتی کارپێکردنی دوگمەکان و پەنجەرەکان -->
+    <script>
+        function openAlert(message) {
+            alert(message);
+        }
+
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openModal(title, text) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalText').innerText = text;
+            document.getElementById('readModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('readModal').style.display = 'none';
+        }
+
+        // داخستنی پەنجەرەکە ئەگەر لە دەرەوەی کلیک کرا
+        window.onclick = function(event) {
+            let modal = document.getElementById('readModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
 </html>
